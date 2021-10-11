@@ -3,14 +3,14 @@ require('events').EventEmitter.defaultMaxListeners = 28
 const express = require('express');
 const app = express();
 
-const methods = require('./services/util/middleware/http')
+const methods = require('./src/middleware/http')
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
 
 //variables de entorno
-const Config = require("./model/constans/config");
-let config = new Config();
+const CONFIG = require("./src/config/index");
+let config = new CONFIG();
 app.use(methods)
 
 /* const options = {
@@ -32,9 +32,9 @@ app.use(express.json({limit: '500kb', extended: true}));
 app.use(express.urlencoded({limit: '500kb', extended: true}));
 
 const token = express.Router();
-require('./services/auth/verificarToken')(token);
-require('./services/server/index')(app, token);
-require('./services/default/index')(app);
+require('./src/routes/auth/auth.index')(token);
+require('./src/routes/route.index')(app, token);
+require('./src/routes/default/index')(app);
 
 // inicializacion del servidor
 http.createServer(options, app).listen( config.service().local_port, () =>{
