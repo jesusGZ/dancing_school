@@ -1,7 +1,7 @@
 // Conexion a mongoDB
 require('events').EventEmitter.defaultMaxListeners = 28
 
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 class conexion{
 
@@ -12,30 +12,30 @@ class conexion{
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
-    });
+    })
   
-    const db = mongoose.connection;
+    const db = mongoose.connection
 
-    db.on('error', console.error.bind(console, '[Error de conexion a mongo]: ')); 
+    db.on('error', console.error.bind(console, '[Error de conexion a mongo]: '))
     
     db.once('open', () => {
-    //console.log('[db] Conectada con éxito');
-    });
+    //console.log('[db] Conectada con éxito')
+    })
   
   /*   mongoose.connection.on('disconnected', function () {
-      console.log('Mongoose desconectado');
+      console.log('Mongoose desconectado')
     });  */
   
     // Evento para cuando node deje de funcionar.
     process.on('SIGINT', function () {
       mongoose.connection.close(function () {
-        console.log('Conexión finalizada.');
-        process.exit(0);
+        console.log('Conexión finalizada.')
+        process.exit(0)
       });
     });
 
-    return db;
+    return db
   }
 }
 
-module.exports = conexion;
+module.exports = conexion

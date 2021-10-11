@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const mySchema = new Schema({
     id: Schema.ObjectId,
@@ -19,6 +19,6 @@ const mySchema = new Schema({
     //role: { type: String, required: true }
 });
 
-let model = mongoose.model('User', mySchema);
+let model = mongoose.model('User', mySchema)
 
-module.exports = model;
+module.exports = model
