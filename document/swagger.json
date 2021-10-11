@@ -1,0 +1,114 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Dancing school",
+        "description": "Documentación correspondiente a las API's del sistema para escuela de baile",
+        "contact": {
+        },
+        "version": "1.1.0"
+    },
+    "servers": [
+        {
+            "url": "https://dominio.com:11011/"
+        },
+        {
+            "url": "http://localhost:11011/"
+        }
+    ],
+    "tags": [
+        {
+            "name": "usuario",
+            "description": "Manejo de usuarios"
+        }
+    ],
+    "paths": {
+        "/user/login": {
+            "post": {
+                "tags": [
+                    "usuario"
+                ],
+                "summary": "Login de usuario (/user/login)",
+                "description": "Acceso de usuario al sistema",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getLogin"
+                            }
+                        }
+                    },
+                    "required": false
+                },
+                "responses": {
+                    "200": {
+                        "description": "Petición realizada  exitosamente",
+                        "content": {}
+                    },
+                    "400": {
+                        "description": "No se encontraron registros",
+                        "content": {}
+                    },
+                    "500": {
+                        "description": "Error de la base de datos",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "usuario"
+                ],
+                "summary": "Listar usuarios (/user)",
+                "description": "Lista de los usuarios registrados en el sistema.",
+                "responses": {
+                    "200": {
+                        "description": "Petición realizada  exitosamente",
+                        "content": {}
+                    },
+                    "400": {
+                        "description": "No se encontraron registros",
+                        "content": {}
+                    },
+                    "500": {
+                        "description": "Error de la base de datos",
+                        "content": {}
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "examples": {
+
+        },
+        "schemas": {
+            "getLogin": {
+                "type": "object",
+                "properties": {
+                    "nick": {
+                        "type": "string",
+                        "example": "mauxx2"
+                    },
+                    "pass": {
+                        "type": "string",
+                        "example": "12345X67"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "token": {
+                "type": "apiKey",
+                "name": "token",
+                "in": "header"
+            }
+        }
+    }
+}
