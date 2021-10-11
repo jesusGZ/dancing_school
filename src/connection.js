@@ -15,7 +15,9 @@ class conexion{
     });
   
     const db = mongoose.connection;
-    db.on('error', console.error.bind(console, '[Error de conexion a mongo] : ')); 
+
+    db.on('error', console.error.bind(console, '[Error de conexion a mongo]: ')); 
+    
     db.once('open', () => {
     //console.log('[db] Conectada con éxito');
     });
