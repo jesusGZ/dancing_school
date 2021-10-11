@@ -1,0 +1,33 @@
+{
+  "name": "dancing_school",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesusGZ/dancing_school.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "mongo",
+    "express"
+  ],
+  "author": "Jesus Antonio Garcia Zurita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jesusGZ/dancing_school/issues"
+  },
+  "homepage": "https://github.com/jesusGZ/dancing_school#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "mongoose": "^6.0.9",
+    "swagger-ui-express": "^4.1.6"
+  }
+}
