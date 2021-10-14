@@ -26,10 +26,17 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.5.0",
+    "express-validator": "^6.13.0",
+    "glob": "^7.2.0",
     "http": "^0.0.1-security",
     "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mcrypt": "^0.1.17",
     "mongoose": "^6.0.9",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.13",
+    "path": "^0.12.7",
     "swagger-ui-express": "^4.1.6"
   }
 }
