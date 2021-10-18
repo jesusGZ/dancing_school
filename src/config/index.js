@@ -1,40 +1,29 @@
-// se requiere dotenv para darle un valor a las variables de entorno mediante el .env
-require('dotenv').config()
+require('dotenv').config();
 
-class Config{
-
-  service(){
-      return{
-        local_port: process.env.LOCAL_PORT,
-        local_host: process.env.LOCAL_HOST,
-        port: process.env.PORT,
-        host: process.env.HOST,
-      }
-  }
-
-  mongo(){
-      return {
-        db_host: process.env.DB_HOST,
-        db_port: process.env.DB_PORT,
-        user: process.env.DB_USER,
-        pass: process.env.DB_PASS,
-        db: process.env.DB_NAME,
-      }
-  }
-
-  jwtExpiration() {
-    return {
-        USER: process.env.JWT_EXPIRATION_USER,
-    };
-  }
-
-  key(){
-        return process.env.KEY;
-  }
-
-  mCryptKey() {
-    return process.env.KEY
-  }
-}
-
-module.exports = Config
+module.exports = {
+  SERVICE: {
+    ENV: process.env.APP_ENV || 'development',
+    NAME: process.env.APP_NAME || 'app',
+    URL: process.env.APP_URL,
+    PORT: process.env.APP_PORT || 3000,
+  },
+  DB: {
+    CONNECTION_LIMIT: Number(process.env.DB_CONNECTION_LIMIT),
+    USER: process.env.DB_USER,
+    PASSWORD: process.env.DB_PASSWORD,
+    DATABASE_NAME: process.env.DB_NAME,
+    HOST: process.env.DB_HOST,
+    PORT: Number(process.env.DB_PORT),
+  },
+  JWT: {
+    SECRET_KEY: process.env.JWT_SECRET_KEY,
+    EXPIRES_IN: process.env.JWT_EXPIRES_IN,
+    REFRESH_SECRET_KEY: process.env.JWT_REFRESH_SECRET_KEY,
+    REFRESH_EXPIRES_IN: process.env.JWT_REFRESH_EXPIRES_IN,
+    PASSWORD_RECOVERY_SECRET_KEY: process.env.JWT_PASSWORD_RECOVERY_SECRET_KEY,
+    PASSWORD_RECOVERY_EXPIRES_IN: process.env.JWT_PASSWORD_RECOVERY_EXPIRES_IN,
+  },
+  BCRYPT: {
+    SALT_ROUNDS: Number(process.env.SALT_ROUNDS) || 10,
+  },
+};
