@@ -4,11 +4,13 @@ const { Router } = require('express');
 
 const rootRoute = require('./root.routes');
 const defaultRoute = require('./default.routes');
+const authRoutes = require('../modules/auth/auth.routes');
 
 module.exports = () => {
   const router = Router();
   const groupsRoute = Router();
 
+  groupsRoute.use('/auth', authRoutes());
   // groupsRoute.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
   router.use('/', rootRoute());
